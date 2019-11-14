@@ -3,14 +3,9 @@
 var seattleShopElement = document.getElementById 
 ('seattleShop');
 
-var liEl = document.createElement('li');
+var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
-liEL.textContent = 'proof of life';
-
-seattleShopElement.appendChild(liEl);
-
-var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
-
+var storeSales = document.getElementById('Stores')
 var seattleShop = {
     minCustomerEachHour: 23,
     maxCustomerEachHour: 65,
@@ -19,18 +14,39 @@ var seattleShop = {
     cookiesEachHour: [],
     totalCookiesForTheDay: 0,
 
-    render function() {
+    calculateCustomers: function() {
         for(var i = 0; i < hours.length; i++) {
-            var liEl = document.createElement('li');
-            liEl = `${hours[i]} Cookies: 34`;
-            this.appendChild(liEl);
+            var randomCustomer = getRandom(this.minCustomerEachHour, this.maxCustomerEachHour);
+            this.customersEachHour.push(randomCustomer);
         }
     },
 
-    randomNumber function(min, max){
-        return Math.floor(Math.random()*(max - min)) + min;
-    }
+    calculateCookies: function() {
+        for(var i = 0; i < this.customersEachHour; i++) {
+           var cookies = Math.round(this.customersEachHour * this.averageCookiesPerCustomer);
+           this.cookiesEachHour.push(cookies); 
+        }
+    },
+
+    render: function() {
+        var ulEl = document.createElement('ul');
+        var h2El = document.createElement('h2');
+        h2El.textContent = this.storeName;
+        storeSales.appendChild(h2El);
+        for(var i = 0; i < hours.length; i++) {
+            var array = [hours[i], this.cookiesEachHour[i]];
+            var liEl = document.createElement("li");
+            liEl.textContent = `${hours[i]}: ${this.cookiesEachHour[i]} Cookies`;
+            storeSales.appendChild(liEl);
+        }
+        storeSales.appendChild(ulEl);
+    },
 };
+
+
+function getRandom(min, max) {
+    return Math.floor(Math.random() * (max - min +1));
+}
 
 seattleShop.render();
 
@@ -38,8 +54,6 @@ var tokyoShopElement = document.getElementById
 ('tokyoShop');
 
 var liEl = document.createElement('li');
-
-liEL.textContent = 'proof of life';
 
 tokyoShopElement.appendChild(liEl);
 
@@ -51,7 +65,7 @@ var tokyoShop = {
     cookiesEachHour: [],
     totalCookiesForTheDay: 0,
 
-    render function() {
+    render: function() {
         for(var i = 0; i < hours.length; i++) {
             var liEl = document.createElement('li');
             liEl = `${hours[i]} Cookies: 34`;
@@ -59,7 +73,7 @@ var tokyoShop = {
         }
     },
 
-    randomNumber function(min, max){
+    randomNumber: function(min, max){
         return Math.floor(Math.random()*(max - min)) + min;
     }
 };
@@ -71,8 +85,6 @@ var dubaiShopElement = document.getElementById
 
 var liEl = document.createElement('li');
 
-liEL.textContent = 'proof of life';
-
 dubaiShopElement.appendChild(liEl);
 
 var dubaiShop = {
@@ -83,7 +95,7 @@ var dubaiShop = {
     cookiesEachHour: [],
     totalCookiesForTheDay: 0,
 
-    render function() {
+    render: function() {
         for(var i = 0; i < hours.length; i++) {
             var liEl = document.createElement('li');
             liEl = `${hours[i]} Cookies: 34`;
@@ -91,7 +103,7 @@ var dubaiShop = {
         }
     },
 
-    randomNumber function(min, max){
+    randomNumber: function(min, max){
         return Math.floor(Math.random()*(max - min)) + min;
     }
 };
@@ -103,8 +115,6 @@ var parisShopElement = document.getElementById
 
 var liEl = document.createElement('li');
 
-liEL.textContent = 'proof of life';
-
 parisShopElement.appendChild(liEl);
 
 var parisShop = {
@@ -115,7 +125,7 @@ var parisShop = {
     cookiesEachHour: [],
     totalCookiesForTheDay: 0,
 
-    render function() {
+    render: function() {
         for(var i = 0; i < hours.length; i++) {
             var liEl = document.createElement('li');
             liEl = `${hours[i]} Cookies: 34`;
@@ -123,7 +133,7 @@ var parisShop = {
         }
     },
 
-    randomNumber function(min, max){
+    randomNumber: function(min, max){
         return Math.floor(Math.random()*(max - min)) + min;
     }
 };
@@ -135,8 +145,6 @@ var limaShopElement = document.getElementById
 
 var liEl = document.createElement('li');
 
-liEL.textContent = 'proof of life';
-
 limaShopElement.appendChild(liEl);
 
 var limaShop = {
@@ -147,7 +155,7 @@ var limaShop = {
     cookiesEachHour: [],
     totalCookiesForTheDay: 0,
 
-    render function() {
+    render: function() {
         for(var i = 0; i < hours.length; i++) {
             var liEl = document.createElement('li');
             liEl = `${hours[i]} Cookies: 34`;
@@ -155,7 +163,7 @@ var limaShop = {
         }
     },
 
-    randomNumber function(min, max){
+    randomNumber: function(min, max){
         return Math.floor(Math.random()*(max - min)) + min;
     }
 };
