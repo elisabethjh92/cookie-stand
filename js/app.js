@@ -16,19 +16,23 @@ var seattleShop = {
 
     calculateCustomers: function() {
         for(var i = 0; i < hours.length; i++) {
-            var randomCustomer = getRandom(this.minCustomerEachHour, this.maxCustomerEachHour);
+            var randomCustomer = Math.floor(Math.random() * (this.maxCustomerEachHour - this.minCustomerEachHour + 1) + this.minCustomerEachHour);
             this.customersEachHour.push(randomCustomer);
+            //console.log(this.customersEachHour);
         }
     },
 
     calculateCookies: function() {
-        for(var i = 0; i < this.customersEachHour; i++) {
-           var cookies = Math.round(this.customersEachHour * this.averageCookiesPerCustomer);
-           this.cookiesEachHour.push(cookies); 
+        for(var i = 0; i < hours.length; i++) {
+           var cookies = Math.round(this.customersEachHour[i] * this.averageCookiesPerCustomer);
+           this.cookiesEachHour.push(cookies);
+           console.log(this.cookiesEachHour, 'is cookies');
         }
     },
 
     render: function() {
+        this.calculateCustomers();
+        this.calculateCookies();
         var ulEl = document.createElement('ul');
         var h2El = document.createElement('h2');
         h2El.textContent = this.storeName;
@@ -39,6 +43,7 @@ var seattleShop = {
             liEl.textContent = `${hours[i]}: ${this.cookiesEachHour[i]} Cookies`;
             storeSales.appendChild(liEl);
         }
+        //console.log(this.cookiesEachHour);
         storeSales.appendChild(ulEl);
     },
 };
