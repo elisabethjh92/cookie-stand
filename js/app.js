@@ -5,8 +5,11 @@ var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '
 var storeSales = document.getElementById('stores')
 
 var seattleShopElement = document.getElementById('seattleShop');
+var ulEl = document.createElement('ul');
+seattleShopElement.appendChild(ulEl);
 
 var seattleShop = {
+    storeName: 'Seattle',
     minCustomerEachHour: 23,
     maxCustomerEachHour: 65,
     averageCookiesPerCustomer: 6.3,
@@ -36,9 +39,9 @@ var seattleShop = {
         this.calculateCustomers();
         this.calculateCookies();
         var ulEl = document.createElement('ul');
-        var h2El = document.createElement('h2');
-        h2El.textContent = this.storeName;
-        storeSales.appendChild(h2El);
+        var h3El = document.createElement('h3');
+        h3El.textContent = this.storeName;
+        storeSales.appendChild(h3El);
         for(var i = 0; i < hours.length; i++) {
             var array = [hours[i], this.cookiesEachHour[i]];
             var liEl = document.createElement("li");
@@ -62,11 +65,12 @@ seattleShop.render();
 
 var tokyoShopElement = document.getElementById('tokyoShop');
 
-//var liEl = document.createElement('li');
+// var liEl = document.createElement('li');
 
-//tokyoShopElement.appendChild(liEl);
+// tokyoShopElement.appendChild(liEl);
 
 var tokyoShop = {
+    storeName: 'Tokyo',
     minCustomerEachHour: 3,
     maxCustomerEachHour: 24,
     averageCookiesPerCustomer: 1.2,
@@ -96,9 +100,9 @@ var tokyoShop = {
         this.calculateCustomers();
         this.calculateCookies();
         var ulEl = document.createElement('ul');
-        var h2El = document.createElement('h2');
-        h2El.textContent = this.storeName;
-        storeSales.appendChild(h2El);
+        var h3El = document.createElement('h3');
+        h3El.textContent = this.storeName;
+        storeSales.appendChild(h3El);
         for(var i = 0; i < hours.length; i++) {
             var array = [hours[i], this.cookiesEachHour[i]];
             var liEl = document.createElement("li");
@@ -150,7 +154,7 @@ var dubaiShop = {
         this.calculateCookies();
         var ulEl = document.createElement('ul');
         var h2El = document.createElement('h2');
-        h2El.textContent = this.storeName;
+        h2El.textContent = this.dubaiShop;
         storeSales.appendChild(h2El);
         for(var i = 0; i < hours.length; i++) {
             var array = [hours[i], this.cookiesEachHour[i]];
@@ -205,7 +209,7 @@ var parisShop = {
         this.calculateCookies();
         var ulEl = document.createElement('ul');
         var h2El = document.createElement('h2');
-        h2El.textContent = this.storeName;
+        h2El.textContent = this.parisShop;
         storeSales.appendChild(h2El);
         for(var i = 0; i < hours.length; i++) {
             var array = [hours[i], this.cookiesEachHour[i]];
@@ -260,7 +264,7 @@ var limaShop = {
         this.calculateCookies();
         var ulEl = document.createElement('ul');
         var h2El = document.createElement('h2');
-        h2El.textContent = this.storeName;
+        h2El.textContent = this.limaS;
         storeSales.appendChild(h2El);
         for(var i = 0; i < hours.length; i++) {
             var array = [hours[i], this.cookiesEachHour[i]];
