@@ -236,6 +236,7 @@ var limaShopElement = document.getElementById('limaShop');
 //limaShopElement.appendChild(liEl);
 
 var limaShop = {
+    storeName: 'Lima',
     minCustomerEachHour: 2,
     maxCustomerEachHour: 16,
     averageCookiesPerCustomer: 4.6,
@@ -265,9 +266,9 @@ var limaShop = {
         this.calculateCustomers();
         this.calculateCookies();
         var ulEl = document.createElement('ul');
-        var h2El = document.createElement('h2');
-        h2El.textContent = this.limaS;
-        storeSales.appendChild(h2El);
+        var h3El = document.createElement('h3');
+        h3El.textContent = this.storeName;
+        storeSales.appendChild(h3El);
         for(var i = 0; i < hours.length; i++) {
             var array = [hours[i], this.cookiesEachHour[i]];
             var liEl = document.createElement("li");
