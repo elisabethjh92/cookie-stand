@@ -124,6 +124,7 @@ var dubaiShopElement = document.getElementById('dubaiShop');
 //dubaiShopElement.appendChild(liEl);
 
 var dubaiShop = {
+    storeName: 'Dubai',
     minCustomerEachHour: 11,
     maxCustomerEachHour: 38,
     averageCookiesPerCustomer: 3.7,
@@ -153,9 +154,9 @@ var dubaiShop = {
         this.calculateCustomers();
         this.calculateCookies();
         var ulEl = document.createElement('ul');
-        var h2El = document.createElement('h2');
-        h2El.textContent = this.dubaiShop;
-        storeSales.appendChild(h2El);
+        var h3El = document.createElement('h3');
+        h3El.textContent = this.storeName;
+        storeSales.appendChild(h3El);
         for(var i = 0; i < hours.length; i++) {
             var array = [hours[i], this.cookiesEachHour[i]];
             var liEl = document.createElement("li");
@@ -179,6 +180,7 @@ var parisShopElement = document.getElementById('parisShop');
 //parisShopElement.appendChild(liEl);
 
 var parisShop = {
+    storeName: 'Paris',
     minCustomerEachHour: 20,
     maxCustomerEachHour: 38,
     averageCookiesPerCustomer: 2.3,
@@ -208,9 +210,9 @@ var parisShop = {
         this.calculateCustomers();
         this.calculateCookies();
         var ulEl = document.createElement('ul');
-        var h2El = document.createElement('h2');
-        h2El.textContent = this.parisShop;
-        storeSales.appendChild(h2El);
+        var h3El = document.createElement('h3');
+        h3El.textContent = this.storeName;
+        storeSales.appendChild(h3El);
         for(var i = 0; i < hours.length; i++) {
             var array = [hours[i], this.cookiesEachHour[i]];
             var liEl = document.createElement("li");
