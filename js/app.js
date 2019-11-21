@@ -102,7 +102,7 @@ var renderFooterRow = function() {
     var td = document.createElement('td');
 
     for( var j = 0; j < Store.allStores.length; j++) {
-      storesHourlyTotals =+ Store.allStores[j].cookiesEachHour[i];
+      storesHourlyTotals += Store.allStores[j].cookiesEachHour[i];
     }
     td.textContent = storesHourlyTotals;
     trEl.appendChild(td);
