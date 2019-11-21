@@ -102,7 +102,7 @@ var renderFooterRow = function() {
     var td = document.createElement('td');
 
     for( var j = 0; j < Store.allStores.length; j++) {
-      storesHourlyTotals =+ Store.allStores[j].hourlyCookiesTotal[i];
+      storesHourlyTotals =+ Store.allStores[j].cookiesEachHour[i];
     }
     td.textContent = storesHourlyTotals;
     trEl.appendChild(td);
@@ -111,7 +111,7 @@ var renderFooterRow = function() {
   var tdElem = document.createElement('td');
   tdElem.textContent = Store.allStoresTotal;
   trEl.appendChild(tdElem);
-  Store.tableData.appendChild(trEl);
+  tableData.appendChild(trEl);
 };
 
 var seattleStore = new Store(23, 65, 6.3, 'Seattle');
@@ -120,8 +120,10 @@ var dubaiStore = new Store(11, 38, 3.7, 'Dubai');
 var parisStore = new Store(20, 38, 2.3, 'Paris');
 var limaStore = new Store(2, 16, 4.6, 'Lima');
 
+
 seattleStore.renderShopRow();
 tokyoStore.renderShopRow();
 dubaiStore.renderShopRow();
 parisStore.renderShopRow();
 limaStore.renderShopRow();
+renderFooterRow();
