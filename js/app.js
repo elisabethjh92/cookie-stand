@@ -125,3 +125,4 @@ tokyoStore.renderShopRow();
 dubaiStore.renderShopRow();
 parisStore.renderShopRow();
 limaStore.renderShopRow();
+
